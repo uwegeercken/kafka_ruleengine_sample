@@ -11,7 +11,7 @@ The business logic (rules) will do the following:
 * Calculate the discounted price
 
 The rules are in the travel_discount_dev.zip file and are created using the Business Rules
-Maintenance Web UI.
+Maintenance Web UI. Check: https://github.com/uwegeercken/rule_maintenance_war for more information.
     
 Look at the kafka_ruleengine.properties file for the configuration and adjust as
 appropriate.
