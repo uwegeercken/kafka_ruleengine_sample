@@ -55,8 +55,8 @@ or whatever you configured in the properties file:
 
     bin/kafka-console-producer.sh --broker-list localhost:9092 --topic travel_discount < discount_sample.json
 
-There is a shell script "run_kafka_ruleengine.sh". Make sure it is executable and run it. The program will run,
-read the messages from the input topic and output them according to the configuration.
+There is a shell script "run_kafka_ruleengine.sh". Make sure it is executable and run it. The program will read
+the messages from the input topic and output them according to the configuration.
 
 The processed data will go to a topic named "travel_discount_ruleengine" or whatever you
 configured.
