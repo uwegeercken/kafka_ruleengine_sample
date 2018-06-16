@@ -92,7 +92,5 @@ Please send your feedback and help to enhance the tool.
 uwe geercken
 uwe.geercken@web.de
 
-last update: 2018-06-02
-
-
+last update: 2018-06-16
 
