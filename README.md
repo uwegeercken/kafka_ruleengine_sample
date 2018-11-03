@@ -48,7 +48,10 @@ Note: One or multiple rules are composed in a rulegroup. This way you can have r
 but the rulegroup as such passes. E.g. if you have two rules: one checks if the age is smaller than 50 and the
 other checks if the age is greater or equal to 50. The rules are connected using an "or" operator. If we have now a
 person at the age of 40, the first rule will pass and the other one will fail. But the rulegroup in which both rules
-are collected, will pass.
+are collected, will pass (because the rules are connected using an "or" condition).
+
+You may also define subgroups in rulegroups which allow grouping of rules and then the subgroups are connected using
+an "and" or "or" condition. This way you have the required flexibility to compose complex logic.
 
 Import the data from the discount_sample.json file into the kafka topic "travel_discount"
 or whatever you configured in the properties file:
