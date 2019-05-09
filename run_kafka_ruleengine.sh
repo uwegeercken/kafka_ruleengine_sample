@@ -7,28 +7,64 @@
 # target topic. Additonally a topic may be specified to output the
 # detailed results of the ruleengine execution.
 #
-# last update: uwe.geercken@web.de - 2018-08-21
+# mandatory: pass the path and name of the ruleengine project zip file as the first parameter
+# optional:  pass the path and name of the ruleengine properties file as the second parameter. default is: same folder as script.
+# optional:  pass the path and name of the kafka consumer properties file as the third parameter. default is: same folder as script.
+# optional:  pass the path and name of the kafka producer properties file as the fourth parameter. default is: same folder as script.
+#
+# last update: uwe.geercken@web.de - 2019-05-04
 
+# determine the script folder
+script_folder=$(dirname "$(readlink -f "$BASH_SOURCE")")
+
+# path and name of ruleengine project zip file.
+ruleengine_project_file=$(readlink -f "${1}")
 
 # path and name of the general properties file to use. if undefined use the default name
-properties_file="${1:-kafka_ruleengine.properties}"
+properties_file=$(readlink -f "${2:-${script_folder}/kafka_ruleengine.properties}")
 
 # path and name of the kafka consumer properties file to use. if undefined use the default name
-properties_file_kafka_consumer="${2:-kafka_consumer.properties}"
+properties_file_kafka_consumer=$(readlink -f "${3:-${script_folder}/kafka_consumer.properties}")
 
 # path and name of the kafka producer properties file to use. if undefined use the default name
-properties_file_kafka_producer="${3:-kafka_producer.properties}"
+properties_file_kafka_producer=$(readlink -f "${4:-${script_folder}/kafka_producer.properties}")
 
-# path and name of ruleengine project zip file. if undefined use the default name
-ruleengine_project_file="${4:-travel_discount_dev.zip}"
+errorRuleEngineProjectFile=false
+errorRuleEnginePropertiesFile=false
+errorKafkaConsumerPropertiesFile=false
+errorKafkaProducerPropertiesFile=false
 
-# defines how details the logging will be done. default is LOG_LEVEL_INFO
-# LOG_LEVEL_ERROR=1
-# LOG_LEVEL_WARNING=2
-# LOG_LEVEL_INFO=3
-# LOG_LEVEL_DETAILED=4
-log_level=${5:-3}
+if [ ! -f "${ruleengine_project_file}" ]
+then
+	errorRuleEngineProjectFile=true
+	echo "error: file [${ruleengine_project_file}] not found."
+fi
 
-# run the kafka ruleengine program
-java -cp .:"lib/*" com.datamelt.kafka.ruleengine.KafkaRuleEngine "${properties_file}" "${properties_file_kafka_consumer}" "${properties_file_kafka_producer}" "${ruleengine_project_file}" ${log_level}
+if [ ! -f "${properties_file}" ]
+then
+	errorRuleEnginePropertiesFile=true
+	echo "error: file [${properties_file}] not found."
+fi
+
+if [ ! -f "${properties_file_kafka_consumer}" ]
+then
+	errorKafkaConsumerPropertiesFile=true
+	echo "error: file [${properties_file_kafka_consumer}] not found."
+fi
+
+if [ ! -f "${properties_file_kafka_producer}" ]
+then
+	errorKafkaProducerPropertiesFile=true
+	echo "error: file [${properties_file_kafka_producer}] not found."
+fi
+
+if [ ${errorRuleEngineProjectFile} == false ] && [ ${errorRuleEnginePropertiesFile} == false ] && [ ${errorKafkaConsumerPropertiesFile} == false ] && [ ${errorKafkaProducerPropertiesFile} == false ]  
+then
+	echo "running KafkaRuleEngine program..."
+
+	# run the kafka ruleengine program
+	java -cp "${script_folder}":"${script_folder}/lib/*" com.datamelt.kafka.ruleengine.KafkaRuleEngine "${properties_file}" "${properties_file_kafka_consumer}" "${properties_file_kafka_producer}" "${ruleengine_project_file}"
+else
+	echo "exiting program..."
+fi
 

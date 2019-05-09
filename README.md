@@ -71,7 +71,7 @@ Look at the processed data:
 
 Please send your feedback and help to enhance the tool.
 
-    Copyright (C) 2006-2018  Uwe Geercken
+    Copyright (C) 2006-2019  Uwe Geercken
 
 
  Licensed to the Apache Software Foundation (ASF) under one
@@ -95,5 +95,5 @@ Please send your feedback and help to enhance the tool.
 uwe geercken
 uwe.geercken@web.de
 
-last update: 2018-11-03
+last update: 2019-05-09
 
