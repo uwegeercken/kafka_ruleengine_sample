@@ -1,0 +1,65 @@
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] Start of KafkaRuleEngine program...
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] Program version: [0.7.4] - last update: [2019-05-09]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] JaRE RuleEngine version: [0.84-R12] - last update: [2018-11-03]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/travel_discount_dev.zip]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_ruleengine.properties]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_consumer.properties]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_producer.properties]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] loading properties from file: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_ruleengine.properties]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] loading properties from file: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_consumer.properties]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] loading properties from file: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_producer.properties]
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] properties for the ruleengine => {kafka.topic.source.format=json, kafka.brokers=localhost:9092, kafka.topic.source.format.csv.fields=, kafka.topic.exclude.fields=, kafka.topic.source=travel_discount, ruleengine.failed.minimum_number_of_groups=, kafka.topic.message.counter.logging.idletime=, kafka.group.id=group_001, kafka.topic.dropfailed=false, kafka.topic.message.counter.logging.interval=, ruleengine.failed.mode=2, kafka.topic.target=travel_discount_ruleengine, kafka.topic.target.logging=, kafka.topic.message.counter.fieldname=, kafka.topic.source.format.avro.schema.name=, kafka.topic.target.logging.type=0, kafka.topic.source.format.csv.value.separator=, ruleengine.check.modified.file.interval=600, kafka.topic.target.failed=, kafka.topic.output.format=json}
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] properties for kafka consumer => {key.deserializer=org.apache.kafka.common.serialization.StringDeserializer, auto.offset.reset=earliest, max.poll.records=1000, auto.commit.interval.ms=1000, enable.auto.commit=true, value.deserializer=org.apache.kafka.common.serialization.StringDeserializer, security.protocol=PLAINTEXT}
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] properties for kafka producer => {retries=0, linger.ms=1, acks=all, value.serializer=org.apache.kafka.common.serialization.StringSerializer, buffer.memory=67108864, batch.size=16384, key.serializer=org.apache.kafka.common.serialization.StringSerializer}
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] ruleengine project file: [/home/uwe/development/git/kafka_ruleengine_sample/travel_discount_dev.zip]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] ruleengine project file check interval (seconds): [600]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] kafka brokers: [localhost:9092]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] kafka source topic: [travel_discount]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] kafka target topic: [travel_discount_ruleengine]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] kafka failed topic: [undefined]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] kafka detailed logging topic: [undefined]
+2019-05-09 22:26:04 INFO  KafkaRuleEngine - [GENERAL] 
+2019-05-09 22:26:04 DEBUG KafkaRuleEngine - [GENERAL] retrieving list of topics from kafka broker(s)
+2019-05-09 22:26:05 DEBUG RuleEngineConsumerProducer - [GENERAL] registered watcher for changed or deleted project zip file
+2019-05-09 22:26:05 DEBUG RuleEngineConsumerProducer - [GENERAL] adding shutdown hook
+2019-05-09 22:26:05 DEBUG RuleEngineConsumerProducer - [RULEENGINE] initializing ruleengine with project zip file: [/home/uwe/development/git/kafka_ruleengine_sample/travel_discount_dev.zip]
+2019-05-09 22:26:05 DEBUG RuleEngineConsumerProducer - [RULEENGINE] preserve ruleengine execution results set to: [false]
+2019-05-09 22:26:05 DEBUG RuleEngineConsumerProducer - [KAFKA] creating KafkaConsumer and KafkaProducer instances
+2019-05-09 22:26:05 DEBUG RuleEngineConsumerProducer - [KAFKA] subscribing to Kafka topic [travel_discount]
+2019-05-09 22:26:05 DEBUG KafkaRuleEngine - [GENERAL] determining additional reference fields from project zip file
+2019-05-09 22:26:05 DEBUG KafkaRuleEngine - [GENERAL] number of additional reference fields: [3]
+2019-05-09 22:26:05 ERROR RuleEngineConsumerProducer - [GENERAL] error invoking action getter method: java.io.FileNotFoundException: /data/mapping_regions.csv (No such file or directory)
+2019-05-09 22:26:05 ERROR RuleEngineConsumerProducer - [GENERAL] end of program
+2019-05-09 22:26:05 INFO  RuleEngineConsumerProducer - [GENERAL] program shutdown...
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] Start of KafkaRuleEngine program...
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] Program version: [0.7.4] - last update: [2019-05-09]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] JaRE RuleEngine version: [0.84-R12] - last update: [2018-11-03]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/travel_discount_dev.zip]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_ruleengine.properties]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_consumer.properties]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] checking if file is accessible: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_producer.properties]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] loading properties from file: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_ruleengine.properties]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] loading properties from file: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_consumer.properties]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] loading properties from file: [/home/uwe/development/git/kafka_ruleengine_sample/kafka_producer.properties]
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] properties for the ruleengine => {kafka.topic.source.format=json, kafka.brokers=localhost:9092, kafka.topic.source.format.csv.fields=, kafka.topic.exclude.fields=, kafka.topic.source=travel_discount, ruleengine.failed.minimum_number_of_groups=, kafka.topic.message.counter.logging.idletime=, kafka.group.id=group_002, kafka.topic.dropfailed=false, kafka.topic.message.counter.logging.interval=, ruleengine.failed.mode=2, kafka.topic.target=travel_discount_ruleengine, kafka.topic.target.logging=, kafka.topic.message.counter.fieldname=, kafka.topic.source.format.avro.schema.name=, kafka.topic.target.logging.type=0, kafka.topic.source.format.csv.value.separator=, ruleengine.check.modified.file.interval=600, kafka.topic.target.failed=, kafka.topic.output.format=json}
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] properties for kafka consumer => {key.deserializer=org.apache.kafka.common.serialization.StringDeserializer, auto.offset.reset=earliest, max.poll.records=1000, auto.commit.interval.ms=1000, enable.auto.commit=true, value.deserializer=org.apache.kafka.common.serialization.StringDeserializer, security.protocol=PLAINTEXT}
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] properties for kafka producer => {retries=0, linger.ms=1, acks=all, value.serializer=org.apache.kafka.common.serialization.StringSerializer, buffer.memory=67108864, batch.size=16384, key.serializer=org.apache.kafka.common.serialization.StringSerializer}
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] ruleengine project file: [/home/uwe/development/git/kafka_ruleengine_sample/travel_discount_dev.zip]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] ruleengine project file check interval (seconds): [600]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] kafka brokers: [localhost:9092]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] kafka source topic: [travel_discount]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] kafka target topic: [travel_discount_ruleengine]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] kafka failed topic: [undefined]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] kafka detailed logging topic: [undefined]
+2019-05-09 22:39:10 INFO  KafkaRuleEngine - [GENERAL] 
+2019-05-09 22:39:10 DEBUG KafkaRuleEngine - [GENERAL] retrieving list of topics from kafka broker(s)
+2019-05-09 22:39:11 DEBUG RuleEngineConsumerProducer - [GENERAL] registered watcher for changed or deleted project zip file
+2019-05-09 22:39:11 DEBUG RuleEngineConsumerProducer - [GENERAL] adding shutdown hook
+2019-05-09 22:39:11 DEBUG RuleEngineConsumerProducer - [RULEENGINE] initializing ruleengine with project zip file: [/home/uwe/development/git/kafka_ruleengine_sample/travel_discount_dev.zip]
+2019-05-09 22:39:11 DEBUG RuleEngineConsumerProducer - [RULEENGINE] preserve ruleengine execution results set to: [false]
+2019-05-09 22:39:11 DEBUG RuleEngineConsumerProducer - [KAFKA] creating KafkaConsumer and KafkaProducer instances
+2019-05-09 22:39:11 DEBUG RuleEngineConsumerProducer - [KAFKA] subscribing to Kafka topic [travel_discount]
+2019-05-09 22:39:11 DEBUG KafkaRuleEngine - [GENERAL] determining additional reference fields from project zip file
+2019-05-09 22:39:11 DEBUG KafkaRuleEngine - [GENERAL] number of additional reference fields: [3]
+2019-05-09 22:40:13 INFO  RuleEngineConsumerProducer - [METRICS] source_topic=travel_discount target_topic=travel_discount_ruleengine field=null field_value=undefined counter=0 offset=14
+2019-05-09 22:40:30 INFO  RuleEngineConsumerProducer - [GENERAL] program shutdown...

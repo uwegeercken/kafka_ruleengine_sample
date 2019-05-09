@@ -7,11 +7,12 @@ The business logic (rules) will do the following:
 
 * check if the person travelling is below the age of 3. If so a 100% discount is applied.
 * check if the person is 50 or older and if so apply a 25% discount
-* Data from the "destination_region" field is translated to the appropriate three letter region code (lookup)
+* Data from the "destination_region" field is translated to the appropriate two letter region code (lookup)
 * Calculate the discounted price
 
 The rules are in the travel_discount_dev.zip file and are created using the Business Rules
-Maintenance Web UI. Check: https://github.com/uwegeercken/rule_maintenance_war for more information.
+Maintenance Web UI. Check: https://github.com/uwegeercken/rule_maintenance_war and also
+https://github.com/uwegeercken/rule_maintenance_documentation for more information.
     
 Look at the kafka_ruleengine.properties file for the configuration and adjust as
 appropriate.
@@ -19,26 +20,27 @@ appropriate.
 In the properties file there are three output topics that can be defined:
 * output topic
 * output topic for failed messages
-* output topic for logging
+* output topic for detailed result logging
 
 If no topic for failed messages is defined, then all messages that come in, go to the output topic. If a topic
 for failed messages is defined then passed messages go to the output topic and failed messages go to the topic
 for failed messages.
 
-If a topic for logging is defined then all detailed results of executing the ruleengine will go to the logging
-topic. For each input message and rule one output message to the logging topic is generated. So if you have
-10 input messages and 5 rules, then 50 messages are generated to the logging topic.
+If a topic for detailed result logging is defined then all detailed results of executing the ruleengine will go
+to the logging topic. For each input message and rule one output message to the logging topic is generated. So if
+you have 10 input messages and 5 rules, then 50 messages are generated to the logging topic. These messages
+contain the data as well as the results from the ruleengine execution and information which rules failed and why.
 
-There are two modes possible with the ruleengine:
+There are mainly two modes possible with the ruleengine:
 
 1) Update only mode: Define the output topic, don't define the failed topic. All input messages will be processed.
 The rule logic will define which records are updated (using actions) and which not. And then all messages are
 sent to the output topic.
 
 2) Check data mode: Define the output topic and define the failed topic. All input messages will be processed.
-A single message will need to pass all rulegroups. If it does, it is sent to the output topic only, if not
-is is sent to the failed topic only. So this mode checks if all logic (based on the rulegroups) that you defined
-is correct for each record. See also the note below.
+A single message will need to pass all rulegroups (or a defined number). If it does, it is sent to the output
+topic only, if not is is sent to the failed topic only. So this mode checks if all logic (based on the rulegroups)
+that you defined is correct for each record. See also the note below.
 
 In any case you can define or not define a topic for logging where the detailed results of the execution of the
 ruleengine are sent. I gives detailed information on why a certain message failed or not. And is helpful for
@@ -58,15 +60,19 @@ or whatever you configured in the properties file:
 
     bin/kafka-console-producer.sh --broker-list localhost:9092 --topic travel_discount < discount_sample.json
 
+If you want to check if the import worked run this command to list all imported data:
+
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic travel_discount --from-beginning
+    
 There is a shell script "run_kafka_ruleengine.sh". Make sure it is executable and run it. The program will read
 the messages from the input topic and output them according to the configuration.
 
 The processed data will go to a topic named "travel_discount_ruleengine" or whatever you
-configured.
+configured in the kafka_ruleengine.properties file.
 
-Look at the processed data:
+To look at the processed data, run this command:
 
-    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic travel_discount --from-beginning
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic travel_discount_ruleengine --from-beginning
 
 
 Please send your feedback and help to enhance the tool.
